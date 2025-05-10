@@ -1,0 +1,160 @@
+import { useMemo } from 'react'
+
+export const usePatientOptions = () => {
+  const bloodTypeOptions = useMemo(
+    () => [
+      { label: 'O(I) Rh+ (первая положительная)', value: 'O+' },
+      { label: 'O(I) Rh- (первая отрицательная)', value: 'O-' },
+      { label: 'A(II) Rh+ (вторая положительная)', value: 'A+' },
+      { label: 'A(II) Rh− (вторая отрицательная)', value: 'A-' },
+      { label: 'B (III) Rh+ (третья положительная)', value: 'B+' },
+      { label: 'B (III) Rh− (третья отрицательная)', value: 'B-' },
+      { label: 'AB (IV) Rh+ (четвертая положительная)', value: 'AB+' },
+      { label: 'AB (IV) Rh− (четвертая отрицательная)', value: 'AB-' },
+    ],
+    [],
+  )
+
+  const chronicDiseasesOptions = useMemo(
+    () => [
+      { label: 'Бронхиальная астма', value: 'bronchial_asthma' },
+      { label: 'Гипертоническая болезнь', value: 'hypertension' },
+      {
+        label: 'Ишемическая болезнь сердца (ИБС)',
+        value: 'coronary_heart_disease',
+      },
+      { label: 'Сахарный диабет 1 типа', value: 'diabetes_mellitus_type1' },
+      { label: 'Сахарный диабет 2 типа', value: 'diabetes_mellitus_type2' },
+      {
+        label: 'Хроническая обструктивная болезнь легких (ХОБЛ)',
+        value: 'copd',
+      },
+      { label: 'Хронический гастрит', value: 'chronic_gastritis' },
+      { label: 'Язвенная болезнь желудка', value: 'peptic_ulcer' },
+      { label: 'Хронический панкреатит', value: 'chronic_pancreatitis' },
+      { label: 'Хронический гепатит', value: 'chronic_hepatitis' },
+      { label: 'Цирроз печени', value: 'liver_cirrhosis' },
+      {
+        label: 'Хроническая болезнь почек (ХБП)',
+        value: 'chronic_kidney_disease',
+      },
+      { label: 'Гломерулонефрит', value: 'glomerulonephritis' },
+      { label: 'Ревматоидный артрит', value: 'rheumatoid_arthritis' },
+      { label: 'Остеоартроз', value: 'osteoarthritis' },
+      { label: 'Остеопороз', value: 'osteoporosis' },
+      { label: 'Системная красная волчанка (СКВ)', value: 'lupus' },
+      { label: 'Псориаз', value: 'psoriasis' },
+      { label: 'Атопический дерматит', value: 'atopic_dermatitis' },
+      { label: 'Эпилепсия', value: 'epilepsy' },
+      { label: 'Рассеянный склероз', value: 'multiple_sclerosis' },
+      { label: 'Болезнь Паркинсона', value: 'parkinsons_disease' },
+      { label: 'Болезнь Альцгеймера', value: 'alzheimers_disease' },
+      {
+        label: 'Хроническая сердечная недостаточность (ХСН)',
+        value: 'heart_failure',
+      },
+      { label: 'Аритмия', value: 'arrhythmia' },
+      { label: 'Варикозная болезнь', value: 'varicose_veins' },
+      { label: 'Тромбофлебит', value: 'thrombophlebitis' },
+      { label: 'Бронхоэктатическая болезнь', value: 'bronchiectasis' },
+      { label: 'Муковисцидоз', value: 'cystic_fibrosis' },
+      { label: 'ВИЧ-инфекция', value: 'hiv' },
+      { label: 'Туберкулез (в хронической форме)', value: 'tuberculosis' },
+      { label: 'Гипотиреоз', value: 'hypothyroidism' },
+      { label: 'Гипертиреоз (тиреотоксикоз)', value: 'hyperthyroidism' },
+      {
+        label: 'Аутоиммунный тиреоидит (Хашимото)',
+        value: 'hashimotos_thyroiditis',
+      },
+      { label: 'Подагра', value: 'gout' },
+      { label: 'Анемия (хроническая)', value: 'anemia' },
+      { label: 'Гемофилия', value: 'hemophilia' },
+      { label: 'Болезнь Крона', value: 'crohns_disease' },
+      { label: 'Язвенный колит', value: 'ulcerative_colitis' },
+      { label: 'Мигрень (хроническая форма)', value: 'migraine' },
+      { label: 'Фибромиалгия', value: 'fibromyalgia' },
+      { label: 'Хронический простатит', value: 'chronic_prostatitis' },
+      { label: 'Эндометриоз', value: 'endometriosis' },
+      { label: 'Поликистоз яичников (СПКЯ)', value: 'pcos' },
+      { label: 'Хронический пиелонефрит', value: 'chronic_pyelonephritis' },
+      { label: 'Глаукома', value: 'glaucoma' },
+      { label: 'Катаракта', value: 'cataract' },
+      { label: 'Хронический тонзиллит', value: 'chronic_tonsillitis' },
+      { label: 'Хронический синусит', value: 'chronic_sinusitis' },
+      { label: 'Аутоиммунный гепатит', value: 'autoimmune_hepatitis' },
+    ],
+    [],
+  )
+
+  const allergiesOptions = useMemo(
+    () => [
+      { label: 'Пенициллины', value: 'penicillin' },
+      { label: 'Цефалоспорины', value: 'cephalosporins' },
+      {
+        label: 'Сульфаниламиды (Бисептол, Ко-тримоксазол)',
+        value: 'sulfonamides',
+      },
+      { label: 'Аспирин (ацетилсалициловая кислота)', value: 'aspirin' },
+      { label: 'НПВС (Ибупрофен, Диклофенак, Кеторолак)', value: 'nsaids' },
+      { label: 'Парацетамол', value: 'paracetamol' },
+      {
+        label: 'Местные анестетики (Лидокаин, Новокаин)',
+        value: 'local_anesthetics',
+      },
+      { label: 'Йод и йодсодержащие препараты', value: 'iodine' },
+      { label: 'Рентгеноконтрастные вещества', value: 'contrast_media' },
+      { label: 'Вакцины (например, АКДС, против гриппа)', value: 'vaccines' },
+      { label: 'Инсулин', value: 'insulin' },
+      { label: 'Глютен (целиакия)', value: 'gluten' },
+      { label: 'Лактоза', value: 'lactose' },
+      { label: 'Орехи (арахис, фундук, миндаль)', value: 'nuts' },
+      { label: 'Морепродукты (креветки, моллюски)', value: 'seafood' },
+      { label: 'Яйца', value: 'eggs' },
+      { label: 'Молоко', value: 'milk' },
+      { label: 'Соя', value: 'soy' },
+      { label: 'Пшеница', value: 'wheat' },
+      { label: 'Шоколад', value: 'chocolate' },
+      { label: 'Мёд', value: 'honey' },
+      { label: 'Цитрусовые (апельсины, лимоны)', value: 'citrus' },
+      { label: 'Клубника', value: 'strawberry' },
+      { label: 'Пыльца деревьев (берёза, ольха)', value: 'pollen_trees' },
+      { label: 'Пыльца злаковых (тимофеевка, рожь)', value: 'pollen_grasses' },
+      { label: 'Пыльца сорных трав (амброзия, полынь)', value: 'pollen_weeds' },
+      { label: 'Плесень', value: 'mold' },
+      { label: 'Пылевые клещи', value: 'dust_mites' },
+      { label: 'Шерсть животных (кошки, собаки)', value: 'animal_dander' },
+      { label: 'Укусы пчёл/ос', value: 'bee_stings' },
+      { label: 'Латекс', value: 'latex' },
+      { label: 'Никель (в бижутерии)', value: 'nickel' },
+      { label: 'Красители (E-добавки)', value: 'food_dyes' },
+      { label: 'Консерванты (сульфиты, бензоаты)', value: 'preservatives' },
+      { label: 'Антигистаминные препараты', value: 'antihistamines' },
+      { label: 'Гормональные препараты', value: 'hormonal_drugs' },
+      { label: 'Хинин (в тонизирующих напитках)', value: 'quinine' },
+      { label: 'Формальдегид', value: 'formaldehyde' },
+      { label: 'Антисептики (Хлоргексидин)', value: 'antiseptics' },
+    ],
+    [],
+  )
+
+  const genderOptions = useMemo(
+    () => [
+      {
+        value: 'male',
+        label: 'Мужской',
+      },
+      {
+        value: 'female',
+        label: 'Женский',
+      },
+    ],
+    [],
+  )
+
+  return {
+    bloodTypeOptions,
+    chronicDiseasesOptions,
+    allergiesOptions,
+    genderOptions,
+  }
+}

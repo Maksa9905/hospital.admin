@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6", // or your desired ECMAScript target
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "module": "esnext", // or your desired module system
+    "strict": true, // enables strict type-checking
+    "esModuleInterop": true, // allows default imports from CommonJS modules
+    "skipLibCheck": true, // optional, can speed up compilation
+    "baseUrl": "./",
+    "paths": {
+      "#/*": ["src/*"]
+    }
+  },
+  "include": ["src", "src/types.d.ts"]
+}
