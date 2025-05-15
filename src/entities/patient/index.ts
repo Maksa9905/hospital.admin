@@ -21,4 +21,6 @@ export {
   useEditPatientMutation,
   useGetPatientByIdQuery,
   useGetPatientListQuery,
+  useLazyGetPatientListQuery,
+  useLazyGetPatientByIdQuery,
 } from './api/api'

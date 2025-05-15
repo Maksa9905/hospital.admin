@@ -20,6 +20,9 @@ export const mapPatient = (dto: PatientResponseDto) => {
     phone: dto.phone || '',
     region: dto.region || '',
     snils: dto.snils || '',
+    pulse: String(dto.pulse) || '',
+    pressure: `${dto.bloodPressureDiastolic}/${dto.bloodPressureSystolic}`,
+    temperature: dto.temperature || '',
   }
 
   return tableItem
@@ -104,6 +107,11 @@ export const useMapPatientById = () => {
             ? dayjs(dto.passport_issued_at)
             : defaultValues.additional_info.passport.issuedAt,
         },
+      },
+      vital_signs: {
+        pulse: dto.pulse ? String(dto.pulse) : '',
+        pressure: `${dto.bloodPressureDiastolic}/${dto.bloodPressureSystolic}`,
+        temperature: dto.temperature,
       },
     }
 

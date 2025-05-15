@@ -29,6 +29,10 @@ export type PatientResponseDto = {
   passport_issued_at: string
   createdAt: string
   updatedAt: string
+  pulse: number
+  temperature: string
+  bloodPressureDiastolic: number
+  bloodPressureSystolic: number
 }
 
 export type PatientListResponseDto = {
@@ -77,6 +81,10 @@ export type PatientByIdResponseDto = {
   passport_issued_at: string
   createdAt: string
   updatedAt: string
+  bloodPressureDiastolic: number
+  bloodPressureSystolic: number
+  pulse: number
+  temperature: string
 }
 
 export type CreatePatientDto = {

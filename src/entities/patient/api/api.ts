@@ -50,7 +50,9 @@ export const patientApi = createApi({
 
 export const {
   useGetPatientListQuery,
+  useLazyGetPatientListQuery,
   useCreatePatientMutation,
+  useLazyGetPatientByIdQuery,
   useEditPatientMutation,
   useGetPatientByIdQuery,
 } = patientApi

@@ -39,6 +39,11 @@ export type PatientFormValues = {
       issuedAt: Dayjs | null
     }
   }
+  vital_signs: {
+    pressure: string
+    pulse: string
+    temperature: string
+  }
 }
 
 export type PatientTableItem = {
@@ -49,4 +54,7 @@ export type PatientTableItem = {
   phone: string
   region: string
   snils: string
+  pressure: string
+  pulse: string
+  temperature: string
 }

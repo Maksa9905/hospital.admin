@@ -1,20 +1,22 @@
 import { MaterialReactTable, MRT_ColumnDef } from 'material-react-table'
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import {
   mapPatient,
   PatientTableItem,
   useGetPatientListQuery,
+  useLazyGetPatientListQuery,
 } from '#/entities/patient'
 import { useTablePaginationQuery } from '#/shared/model'
 import { useNavigate } from 'react-router'
 
 const PatientsTable = () => {
   const { onPaginationChange, pagination, params } = useTablePaginationQuery()
+  const [getPatients] = useLazyGetPatientListQuery()
   const { data, meta, isLoading } = useGetPatientListQuery(params, {
     selectFromResult: (result) => ({
       data: result.currentData?.data.map(mapPatient),
       meta: result.currentData?.meta,
-      isLoading: result.isLoading || result.isFetching,
+      isLoading: result.isLoading,
     }),
   })
 
@@ -22,6 +24,21 @@ const PatientsTable = () => {
 
   const columns = useMemo<MRT_ColumnDef<PatientTableItem>[]>(
     () => [
+      {
+        header: 'Температура',
+        accessorKey: 'temperature',
+        size: 30,
+      },
+      {
+        header: 'Давление',
+        accessorKey: 'pressure',
+        size: 30,
+      },
+      {
+        header: 'Пульс',
+        accessorKey: 'pulse',
+        size: 30,
+      },
       {
         header: 'ФИО',
         accessorKey: 'fullName',
@@ -49,6 +66,14 @@ const PatientsTable = () => {
     ],
     [],
   )
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      getPatients(params)
+    }, 3000)
+
+    return () => clearInterval(interval)
+  }, [getPatients, params])
 
   if (!data) return null
 
